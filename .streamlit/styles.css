@@ -1,0 +1,497 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #1e3a5f;
+    --primary-light: #2d4a6f;
+    --primary-dark: #152a45;
+    --accent: #2563eb;
+    --success: #059669;
+    --warning: #d97706;
+    --danger: #dc2626;
+    --bg-page: #f4f5f7;
+    --bg-card: #ffffff;
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+    --border: #e5e7eb;
+}
+
+* {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+.main .block-container,
+[data-testid="stAppViewContainer"],
+[data-testid="stHorizontalBlock"] {
+    text-align: left;
+}
+
+p, span, label, div[class*="stMarkdown"] {
+    text-align: left !important;
+}
+
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] span,
+[data-testid="stSidebar"] label,
+[data-testid="stSidebar"] .stMarkdown {
+    text-align: left !important;
+}
+
+[data-testid="stSidebar"] * {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+button[data-testid="baseButton-header"],
+[data-testid="stSidebar"] button[aria-expanded],
+[aria-label*="sidebar"],
+[aria-label*="Sidebar"],
+section[data-testid="stSidebar"] > button,
+section[data-testid="stSidebar"] > div:first-child > button {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+section[data-testid="stSidebar"] > button span,
+section[data-testid="stSidebar"] > div:first-child > button span,
+button[data-testid="baseButton-header"] span {
+    font-family: inherit !important;
+}
+
+[data-testid="stExpander"] summary,
+[data-testid="stExpander"] summary span,
+[data-testid="stExpander"] summary * {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* Иконка в экспандере «Прикрепить файл» — показываем ▾/▴ вместо кода иконки */
+[data-testid="stExpander"] [data-testid="stIconMaterial"],
+[data-testid="stExpander"] summary [data-testid="stIconMaterial"],
+[data-testid="stExpander"] summary .stIconMaterial {
+    font-size: 0 !important;
+    line-height: 0 !important;
+    overflow: hidden !important;
+    width: 1rem !important;
+    display: inline-block !important;
+    text-indent: -9999px !important;
+}
+[data-testid="stExpander"] details summary::after,
+[data-testid="stExpander"] summary::after {
+    content: " ▾";
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-left: 0.25rem;
+}
+[data-testid="stExpander"] details[open] summary::after,
+[data-testid="stExpander"] summary[aria-expanded="true"]::after {
+    content: " ▴";
+}
+
+button[data-testid="baseButton-header"] span,
+button[aria-label*="sidebar"] span,
+button[aria-label*="Sidebar"] span {
+    font-size: 0 !important;
+    line-height: 0 !important;
+    overflow: hidden !important;
+    width: 1.25rem !important;
+    display: inline-block !important;
+    text-indent: -999px !important;
+}
+
+button[data-testid="baseButton-header"]::after,
+button[aria-label*="sidebar"]::after,
+button[aria-label*="Sidebar"]::after {
+    content: "‹";
+    font-size: 1.25rem;
+    font-family: 'Inter', -apple-system, sans-serif !important;
+    font-weight: 600;
+    line-height: 1;
+}
+
+[data-testid="stSidebarCollapseButton"] [data-testid="stIconMaterial"],
+[data-testid="stSidebarCollapseButton"] button span,
+button[data-testid="stBaseButton-headerNoPadding"] [data-testid="stIconMaterial"],
+button[data-testid="stBaseButton-headerNoPadding"] span {
+    font-size: 0 !important;
+    line-height: 0 !important;
+    overflow: hidden !important;
+    width: 1.25rem !important;
+    display: inline-block !important;
+    text-indent: -9999px !important;
+}
+[data-testid="stSidebarCollapseButton"] button,
+button[data-testid="stBaseButton-headerNoPadding"] {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+button[data-testid="stBaseButton-headerNoPadding"]::after,
+[data-testid="stSidebarCollapseButton"] button::after {
+    content: "»";
+    font-size: 1.25rem;
+    font-family: 'Inter', -apple-system, sans-serif !important;
+    font-weight: 600;
+    line-height: 1;
+}
+[data-testid="stSidebar"][aria-expanded="true"] [data-testid="stSidebarCollapseButton"] button::after,
+[data-testid="stSidebar"][aria-expanded="true"] button[data-testid="stBaseButton-headerNoPadding"]::after {
+    content: "«";
+}
+
+.app-header {
+    background: var(--primary);
+    color: var(--bg-card);
+    padding: 1rem 1.5rem;
+    margin: -1rem -1rem 1.25rem -1rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.app-header-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.app-header-logo {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--bg-card);
+    letter-spacing: -0.02em;
+}
+
+.app-header-status {
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+}
+
+header[data-testid="stHeader"] {
+    background: var(--bg-card) !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06) !important;
+}
+
+[data-testid="stSidebar"] {
+    background: var(--bg-card) !important;
+    border-right: 1px solid var(--border) !important;
+}
+
+[data-testid="stSidebar"] > div:first-child {
+    background: var(--bg-card) !important;
+}
+
+.stButton > button {
+    background: var(--primary) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 6px !important;
+    padding: 0.6rem 1.25rem !important;
+    font-weight: 600 !important;
+    font-size: 0.9375rem !important;
+    transition: background 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.stButton > button:hover {
+    background: var(--primary-dark) !important;
+    box-shadow: 0 2px 6px rgba(30, 58, 95, 0.3) !important;
+}
+
+.stButton > button[kind="secondary"] {
+    background: white !important;
+    color: var(--primary) !important;
+    border: 1px solid var(--border) !important;
+}
+
+.stButton > button[kind="secondary"]:hover {
+    background: var(--bg-page) !important;
+    border-color: var(--primary) !important;
+    color: var(--primary) !important;
+}
+
+.stTextInput > div > div > input,
+.stTextArea > div > div > textarea {
+    border: 1px solid var(--border) !important;
+    border-radius: 6px !important;
+    padding: 0.6rem 0.75rem !important;
+    font-size: 0.9375rem !important;
+    text-align: left !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.stTextInput > div > div > input:focus,
+.stTextArea > div > div > textarea:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12) !important;
+    outline: none !important;
+}
+
+.stTabs [data-baseweb="tab-list"] {
+    gap: 0.5rem;
+    background: transparent;
+}
+
+.stTabs [data-baseweb="tab"] {
+    background: white;
+    border-radius: 6px;
+    padding: 0.6rem 1.25rem;
+    border: 1px solid var(--border);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-align: center;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+    border-color: var(--accent);
+}
+
+.stTabs [aria-selected="true"] {
+    background: var(--primary) !important;
+    color: white !important;
+    border-color: var(--primary) !important;
+}
+
+[data-testid="stFileUploader"] {
+    border: 2px dashed var(--border) !important;
+    border-radius: 8px !important;
+    background: var(--bg-page) !important;
+    padding: 2rem 1rem !important;
+    text-align: center !important;
+    transition: border-color 0.2s ease, background 0.2s ease !important;
+}
+
+[data-testid="stFileUploader"]:hover {
+    border-color: var(--accent) !important;
+    background: rgba(37, 99, 235, 0.04) !important;
+}
+
+.stProgress > div > div > div {
+    background: var(--accent) !important;
+    border-radius: 4px !important;
+}
+
+.results-table-wrap {
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 75vh;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    margin-bottom: 1.5rem;
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.results-table th {
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+    text-align: left;
+    padding: 0.875rem 1rem;
+    white-space: nowrap;
+}
+
+.results-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    text-align: left;
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+}
+
+.results-table td.col-num {
+    width: 2.5rem;
+    min-width: 2.5rem;
+    text-align: center;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.results-table td.col-text {
+    min-width: 10rem;
+    max-width: 28rem;
+}
+
+.results-table td.col-verdict {
+    min-width: 8rem;
+}
+
+.results-table tbody tr:hover {
+    background: var(--bg-page);
+}
+
+.badge-success {
+    background: var(--success);
+    color: white;
+    border-radius: 6px;
+    padding: 0.2rem 0.6rem;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    display: inline-block;
+}
+
+.badge-warning {
+    background: var(--warning);
+    color: white;
+    border-radius: 6px;
+    padding: 0.2rem 0.6rem;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    display: inline-block;
+}
+
+.badge-danger {
+    background: var(--danger);
+    color: white;
+    border-radius: 6px;
+    padding: 0.2rem 0.6rem;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    display: inline-block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in { animation: fadeIn 0.3s ease; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-page); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
+
+.chat-static-container {
+    max-height: 55vh;
+    min-height: 12rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg-page);
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.chat-empty {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.chat-msg {
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    max-width: 85%;
+}
+
+.chat-msg-user {
+    margin-left: auto;
+    background: var(--primary);
+    color: white;
+}
+
+.chat-msg-user .chat-msg-content {
+    color: rgba(255,255,255,0.95);
+}
+
+.chat-msg-assistant {
+    margin-right: auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+}
+
+.chat-msg-role {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+    opacity: 0.9;
+}
+
+.chat-msg-assistant .chat-msg-role {
+    color: var(--primary);
+}
+
+.chat-msg-content {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.chat-msg-content strong {
+    font-weight: 600;
+}
+
+.chat-msg-content .chat-h1 { font-size: 1.125rem; font-weight: 700; margin: 0.75rem 0 0.35rem; }
+.chat-msg-content .chat-h2 { font-size: 1.0625rem; font-weight: 600; margin: 0.6rem 0 0.3rem; }
+.chat-msg-content .chat-h3 { font-size: 1rem; font-weight: 600; margin: 0.5rem 0 0.25rem; }
+.chat-msg-content .chat-ul { margin: 0.35rem 0; padding-left: 1.25rem; }
+.chat-msg-content .chat-ul li { margin: 0.2rem 0; }
+.chat-msg-content .chat-code {
+    background: rgba(0,0,0,0.06);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.875em;
+    font-family: ui-monospace, monospace;
+}
+.chat-msg-content .chat-hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0.6rem 0;
+}
+
+/* Блок «файл + поле ввода» — визуально один блок */
+.chat-input-block { display: none; }
+.main .chat-input-block ~ [data-testid="stExpander"],
+.main [data-testid="stExpander"]:has([data-testid="stFileUploader"]) {
+    border: 1px solid var(--border);
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 0 !important;
+    background: var(--bg-page);
+}
+.main .stChatInputContainer,
+.main [data-testid="stChatInputContainer"],
+.main [data-testid="stChatInput"] {
+    border: 1px solid var(--border) !important;
+    border-top: none !important;
+    border-radius: 0 0 8px 8px !important;
+    margin-top: 0 !important;
+}
+.main [data-testid="stFileUploader"] {
+    padding: 0.75rem 1rem !important;
+    border-radius: 0 !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+@media (max-width: 768px) {
+    .app-header { padding: 0.75rem 1rem; }
+    .app-header-brand { flex-wrap: wrap; }
+    .app-header-logo { font-size: 1rem; }
+    .stButton > button { padding: 0.5rem 0.75rem !important; font-size: 0.8125rem !important; }
+    .main .block-container { padding: 1rem 0.75rem !important; max-width: 100% !important; }
+    .chat-static-container { max-height: 50vh; min-height: 10rem; padding: 0.75rem; }
+    .chat-msg { max-width: 92%; padding: 0.6rem 0.75rem; }
+    .chat-msg-content { font-size: 0.875rem; }
+    .chat-msg-content .chat-h1 { font-size: 1rem; }
+    .chat-msg-content .chat-h2 { font-size: 0.9375rem; }
+    .chat-msg-content .chat-h3 { font-size: 0.875rem; }
+    [data-testid="column"] { min-width: 0 !important; }
+    .stTabs [data-baseweb="tab"] { padding: 0.5rem 0.75rem; font-size: 0.8125rem; }
+}
